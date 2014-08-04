@@ -50,6 +50,5 @@ C:\Users\Grand\Documents\GitHub\FinalPro\FinalPro\bin\Microsoft.Owin.Security.OA
 C:\Users\Grand\Documents\GitHub\FinalPro\FinalPro\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Grand\Documents\GitHub\FinalPro\FinalPro\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Grand\Documents\GitHub\FinalPro\FinalPro\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Grand\Documents\GitHub\FinalPro\FinalPro\obj\Debug\FinalPro.csprojResolveAssemblyReference.cache
 C:\Users\Grand\Documents\GitHub\FinalPro\FinalPro\obj\Debug\FinalPro.dll
 C:\Users\Grand\Documents\GitHub\FinalPro\FinalPro\obj\Debug\FinalPro.pdb

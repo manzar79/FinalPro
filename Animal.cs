@@ -16,12 +16,12 @@ namespace FinalPro
     {
         public Animal()
         {
-            this.CutNames = new HashSet<CutName>();
+            this.PrimalCuts = new HashSet<PrimalCut>();
         }
     
         public int AnimalId { get; set; }
         public string AnimalName { get; set; }
     
-        public virtual ICollection<CutName> CutNames { get; set; }
+        public virtual ICollection<PrimalCut> PrimalCuts { get; set; }
     }
 }

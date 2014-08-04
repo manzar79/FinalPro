@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.CutName1)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Animal.AnimalName)
+            @Html.DisplayNameFor(model => model.PrimalCut.PrimalCutName)
         </th>
         <th></th>
     </tr>
@@ -26,7 +26,7 @@
             @Html.DisplayFor(modelItem => item.CutName1)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Animal.AnimalName)
+            @Html.DisplayFor(modelItem => item.PrimalCut.PrimalCutName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CutId }) |

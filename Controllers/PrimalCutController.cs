@@ -10,116 +10,112 @@ using FinalPro;
 
 namespace FinalPro.Controllers
 {
-    public class CookCutController : Controller
+    public class PrimalCutController : Controller
     {
         private FinalProjectDBEntities1 db = new FinalProjectDBEntities1();
 
-        // GET: CookCut
+        // GET: PrimalCut
         public ActionResult Index()
         {
-            var cookCuts = db.CookCuts.Include(c => c.CookType).Include(c => c.CutName);
-            return View(cookCuts.ToList());
+            var primalCuts = db.PrimalCuts.Include(p => p.Animal);
+            return View(primalCuts.ToList());
         }
 
-        // GET: CookCut/Details/5
+        // GET: PrimalCut/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CookCut cookCut = db.CookCuts.Find(id);
-            if (cookCut == null)
+            PrimalCut primalCut = db.PrimalCuts.Find(id);
+            if (primalCut == null)
             {
                 return HttpNotFound();
             }
-            return View(cookCut);
+            return View(primalCut);
         }
 
-        // GET: CookCut/Create
+        // GET: PrimalCut/Create
         public ActionResult Create()
         {
-            ViewBag.CookId = new SelectList(db.CookTypes, "CookId", "CookType1");
-            ViewBag.CutId = new SelectList(db.CutNames, "CutId", "CutName1");
+            ViewBag.AnimalId = new SelectList(db.Animals, "AnimalId", "AnimalName");
             return View();
         }
 
-        // POST: CookCut/Create
+        // POST: PrimalCut/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CutId,CookId,Good_Bad,CookCutId")] CookCut cookCut)
+        public ActionResult Create([Bind(Include = "PrimalCutId,PrimalCutName,AnimalId")] PrimalCut primalCut)
         {
             if (ModelState.IsValid)
             {
-                db.CookCuts.Add(cookCut);
+                db.PrimalCuts.Add(primalCut);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CookId = new SelectList(db.CookTypes, "CookId", "CookType1", cookCut.CookId);
-            ViewBag.CutId = new SelectList(db.CutNames, "CutId", "CutName1", cookCut.CutId);
-            return View(cookCut);
+            ViewBag.AnimalId = new SelectList(db.Animals, "AnimalId", "AnimalName", primalCut.AnimalId);
+            return View(primalCut);
         }
 
-        // GET: CookCut/Edit/5
+        // GET: PrimalCut/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CookCut cookCut = db.CookCuts.Find(id);
-            if (cookCut == null)
+            PrimalCut primalCut = db.PrimalCuts.Find(id);
+            if (primalCut == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CookId = new SelectList(db.CookTypes, "CookId", "CookType1", cookCut.CookId);
-            ViewBag.CutId = new SelectList(db.CutNames, "CutId", "CutName1", cookCut.CutId);
-            return View(cookCut);
+            ViewBag.AnimalId = new SelectList(db.Animals, "AnimalId", "AnimalName", primalCut.AnimalId);
+            return View(primalCut);
         }
 
-        // POST: CookCut/Edit/5
+        // POST: PrimalCut/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CutId,CookId,Good_Bad,CookCutId")] CookCut cookCut)
+        public ActionResult Edit([Bind(Include = "PrimalCutId,PrimalCutName,AnimalId")] PrimalCut primalCut)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cookCut).State = EntityState.Modified;
+                db.Entry(primalCut).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CookId = new SelectList(db.CookTypes, "CookId", "CookType1", cookCut.CookId);
-            ViewBag.CutId = new SelectList(db.CutNames, "CutId", "CutName1", cookCut.CutId);
-            return View(cookCut);
+            ViewBag.AnimalId = new SelectList(db.Animals, "AnimalId", "AnimalName", primalCut.AnimalId);
+            return View(primalCut);
         }
 
-        // GET: CookCut/Delete/5
+        // GET: PrimalCut/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CookCut cookCut = db.CookCuts.Find(id);
-            if (cookCut == null)
+            PrimalCut primalCut = db.PrimalCuts.Find(id);
+            if (primalCut == null)
             {
                 return HttpNotFound();
             }
-            return View(cookCut);
+            return View(primalCut);
         }
 
-        // POST: CookCut/Delete/5
+        // POST: PrimalCut/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CookCut cookCut = db.CookCuts.Find(id);
-            db.CookCuts.Remove(cookCut);
+            PrimalCut primalCut = db.PrimalCuts.Find(id);
+            db.PrimalCuts.Remove(primalCut);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

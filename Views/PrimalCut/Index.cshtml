@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FinalPro.PrimalCut>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimalCutName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Animal.AnimalName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimalCutName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Animal.AnimalName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PrimalCutId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PrimalCutId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PrimalCutId })
+        </td>
+    </tr>
+}
+
+</table>

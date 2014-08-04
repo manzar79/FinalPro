@@ -13,10 +13,10 @@ namespace FinalPro
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FinalProjectDBEntities : DbContext
+    public partial class FinalProjectDBEntities1 : DbContext
     {
-        public FinalProjectDBEntities()
-            : base("name=FinalProjectDBEntities")
+        public FinalProjectDBEntities1()
+            : base("name=FinalProjectDBEntities1")
         {
         }
     
@@ -30,5 +30,6 @@ namespace FinalPro
         public virtual DbSet<CookCut> CookCuts { get; set; }
         public virtual DbSet<CookType> CookTypes { get; set; }
         public virtual DbSet<CutName> CutNames { get; set; }
+        public virtual DbSet<PrimalCut> PrimalCuts { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace FinalPro.Controllers
 {
     public class AltNameController : Controller
     {
-        private FinalProjectDBEntities db = new FinalProjectDBEntities();
+        private FinalProjectDBEntities1 db = new FinalProjectDBEntities1();
 
         // GET: AltName
         public ActionResult Index()

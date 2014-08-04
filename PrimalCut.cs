@@ -12,20 +12,18 @@ namespace FinalPro
     using System;
     using System.Collections.Generic;
     
-    public partial class CutName
+    public partial class PrimalCut
     {
-        public CutName()
+        public PrimalCut()
         {
-            this.AltNames = new HashSet<AltName>();
-            this.CookCuts = new HashSet<CookCut>();
+            this.CutNames = new HashSet<CutName>();
         }
     
-        public int CutId { get; set; }
-        public string CutName1 { get; set; }
         public int PrimalCutId { get; set; }
+        public string PrimalCutName { get; set; }
+        public int AnimalId { get; set; }
     
-        public virtual ICollection<AltName> AltNames { get; set; }
-        public virtual ICollection<CookCut> CookCuts { get; set; }
-        public virtual PrimalCut PrimalCut { get; set; }
+        public virtual Animal Animal { get; set; }
+        public virtual ICollection<CutName> CutNames { get; set; }
     }
 }

@@ -12,12 +12,12 @@ namespace FinalPro.Controllers
 {
     public class CutNameController : Controller
     {
-        private FinalProjectDBEntities db = new FinalProjectDBEntities();
+        private FinalProjectDBEntities1 db = new FinalProjectDBEntities1();
 
         // GET: CutName
         public ActionResult Index()
         {
-            var cutNames = db.CutNames.Include(c => c.Animal);
+            var cutNames = db.CutNames.Include(c => c.PrimalCut);
             return View(cutNames.ToList());
         }
 
@@ -39,7 +39,7 @@ namespace FinalPro.Controllers
         // GET: CutName/Create
         public ActionResult Create()
         {
-            ViewBag.AnimalId = new SelectList(db.Animals, "AnimalId", "AnimalName");
+            ViewBag.PrimalCutId = new SelectList(db.PrimalCuts, "PrimalCutId", "PrimalCutName");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace FinalPro.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CutId,CutName1,AnimalId")] CutName cutName)
+        public ActionResult Create([Bind(Include = "CutId,CutName1,PrimalCutId")] CutName cutName)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace FinalPro.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AnimalId = new SelectList(db.Animals, "AnimalId", "AnimalName", cutName.AnimalId);
+            ViewBag.PrimalCutId = new SelectList(db.PrimalCuts, "PrimalCutId", "PrimalCutName", cutName.PrimalCutId);
             return View(cutName);
         }
 
@@ -73,7 +73,7 @@ namespace FinalPro.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AnimalId = new SelectList(db.Animals, "AnimalId", "AnimalName", cutName.AnimalId);
+            ViewBag.PrimalCutId = new SelectList(db.PrimalCuts, "PrimalCutId", "PrimalCutName", cutName.PrimalCutId);
             return View(cutName);
         }
 
@@ -82,7 +82,7 @@ namespace FinalPro.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CutId,CutName1,AnimalId")] CutName cutName)
+        public ActionResult Edit([Bind(Include = "CutId,CutName1,PrimalCutId")] CutName cutName)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace FinalPro.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AnimalId = new SelectList(db.Animals, "AnimalId", "AnimalName", cutName.AnimalId);
+            ViewBag.PrimalCutId = new SelectList(db.PrimalCuts, "PrimalCutId", "PrimalCutName", cutName.PrimalCutId);
             return View(cutName);
         }
 
