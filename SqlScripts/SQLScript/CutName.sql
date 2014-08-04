@@ -1,0 +1,35 @@
+USE [FinalProjectDB]
+GO
+
+/****** Object:  Table [dbo].[CutName]    Script Date: 8/4/2014 9:47:01 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[CutName](
+	[CutId] [int] IDENTITY(1,1) NOT NULL,
+	[CutName] [varchar](50) NULL,
+	[AnimalId] [int] NOT NULL,
+ CONSTRAINT [PK_CutName] PRIMARY KEY CLUSTERED 
+(
+	[CutId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[CutName]  WITH CHECK ADD  CONSTRAINT [FK_CutName_Animal] FOREIGN KEY([AnimalId])
+REFERENCES [dbo].[Animal] ([AnimalId])
+GO
+
+ALTER TABLE [dbo].[CutName] CHECK CONSTRAINT [FK_CutName_Animal]
+GO
+
