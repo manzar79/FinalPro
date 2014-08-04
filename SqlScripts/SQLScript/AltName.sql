@@ -1,7 +1,7 @@
 USE [FinalProjectDB]
 GO
 
-/****** Object:  Table [dbo].[AltName]    Script Date: 8/4/2014 9:45:46 AM ******/
+/****** Object:  Table [dbo].[AltName]    Script Date: 8/4/2014 3:40:36 PM ******/
 SET ANSI_NULLS ON
 GO
 

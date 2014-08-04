@@ -1,7 +1,7 @@
 USE [FinalProjectDB]
 GO
 
-/****** Object:  Table [dbo].[CutName]    Script Date: 8/4/2014 9:47:01 AM ******/
+/****** Object:  Table [dbo].[CutName]    Script Date: 8/4/2014 3:41:55 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -14,7 +14,7 @@ GO
 CREATE TABLE [dbo].[CutName](
 	[CutId] [int] IDENTITY(1,1) NOT NULL,
 	[CutName] [varchar](50) NULL,
-	[AnimalId] [int] NOT NULL,
+	[PrimalCutId] [int] NOT NULL,
  CONSTRAINT [PK_CutName] PRIMARY KEY CLUSTERED 
 (
 	[CutId] ASC
@@ -26,10 +26,10 @@ GO
 SET ANSI_PADDING OFF
 GO
 
-ALTER TABLE [dbo].[CutName]  WITH CHECK ADD  CONSTRAINT [FK_CutName_Animal] FOREIGN KEY([AnimalId])
-REFERENCES [dbo].[Animal] ([AnimalId])
+ALTER TABLE [dbo].[CutName]  WITH CHECK ADD  CONSTRAINT [FK_CutName_PrimalCut] FOREIGN KEY([PrimalCutId])
+REFERENCES [dbo].[PrimalCut] ([PrimalCutId])
 GO
 
-ALTER TABLE [dbo].[CutName] CHECK CONSTRAINT [FK_CutName_Animal]
+ALTER TABLE [dbo].[CutName] CHECK CONSTRAINT [FK_CutName_PrimalCut]
 GO
 
