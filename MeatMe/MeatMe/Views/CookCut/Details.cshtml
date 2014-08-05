@@ -1,0 +1,42 @@
+﻿@model MeatMe.Models.CookCut
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CookCut</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Good_Bad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Good_Bad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CookType.CookType1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CookType.CookType1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CutName.CutName1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CutName.CutName1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CookCutId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

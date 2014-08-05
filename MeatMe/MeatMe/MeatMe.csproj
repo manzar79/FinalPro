@@ -161,8 +161,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AltNameController.cs" />
     <Compile Include="Controllers\AnimalController.cs" />
+    <Compile Include="Controllers\CookCutController.cs" />
+    <Compile Include="Controllers\CookTypeController.cs" />
+    <Compile Include="Controllers\CutNameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PrimalCutController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -277,6 +282,31 @@
     <Content Include="Views\Animal\Details.cshtml" />
     <Content Include="Views\Animal\Edit.cshtml" />
     <Content Include="Views\Animal\Index.cshtml" />
+    <Content Include="Views\PrimalCut\Create.cshtml" />
+    <Content Include="Views\PrimalCut\Delete.cshtml" />
+    <Content Include="Views\PrimalCut\Details.cshtml" />
+    <Content Include="Views\PrimalCut\Edit.cshtml" />
+    <Content Include="Views\PrimalCut\Index.cshtml" />
+    <Content Include="Views\CutName\Create.cshtml" />
+    <Content Include="Views\CutName\Delete.cshtml" />
+    <Content Include="Views\CutName\Details.cshtml" />
+    <Content Include="Views\CutName\Edit.cshtml" />
+    <Content Include="Views\CutName\Index.cshtml" />
+    <Content Include="Views\AltName\Create.cshtml" />
+    <Content Include="Views\AltName\Delete.cshtml" />
+    <Content Include="Views\AltName\Details.cshtml" />
+    <Content Include="Views\AltName\Edit.cshtml" />
+    <Content Include="Views\AltName\Index.cshtml" />
+    <Content Include="Views\CookCut\Create.cshtml" />
+    <Content Include="Views\CookCut\Delete.cshtml" />
+    <Content Include="Views\CookCut\Details.cshtml" />
+    <Content Include="Views\CookCut\Edit.cshtml" />
+    <Content Include="Views\CookCut\Index.cshtml" />
+    <Content Include="Views\CookType\Create.cshtml" />
+    <Content Include="Views\CookType\Delete.cshtml" />
+    <Content Include="Views\CookType\Details.cshtml" />
+    <Content Include="Views\CookType\Edit.cshtml" />
+    <Content Include="Views\CookType\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
