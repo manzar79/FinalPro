@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1360d6542c5d4521addc391b82fc93ec" Name="Diagram1">
+        <EntityTypeShape EntityType="FinalProjectDBModel.AltName" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.Animal" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.CookCut" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.CookType" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.CutName" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.PrimalCut" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_AltName_CutName" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_PrimalCut_Animal1" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_CookCut_CookType" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_CookCut_CutName" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectDBModel.FK_CutName_PrimalCut" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

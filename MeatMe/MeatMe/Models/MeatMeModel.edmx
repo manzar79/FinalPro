@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FinalProjectDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AltName">
+          <Key>
+            <PropertyRef Name="AltNameId" />
+          </Key>
+          <Property Name="AltNameId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CutId" Type="int" Nullable="false" />
+          <Property Name="AltName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Animal">
+          <Key>
+            <PropertyRef Name="AnimalId" />
+          </Key>
+          <Property Name="AnimalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AnimalName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CookCut">
+          <Key>
+            <PropertyRef Name="CookCutId" />
+          </Key>
+          <Property Name="CutId" Type="int" Nullable="false" />
+          <Property Name="CookId" Type="int" Nullable="false" />
+          <Property Name="Good/Bad" Type="bit" Nullable="false" />
+          <Property Name="CookCutId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CookType">
+          <Key>
+            <PropertyRef Name="CookId" />
+          </Key>
+          <Property Name="CookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CookType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CutName">
+          <Key>
+            <PropertyRef Name="CutId" />
+          </Key>
+          <Property Name="CutId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CutName" Type="varchar" MaxLength="50" />
+          <Property Name="PrimalCutId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PrimalCut">
+          <Key>
+            <PropertyRef Name="PrimalCutId" />
+          </Key>
+          <Property Name="PrimalCutId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PrimalCutName" Type="varchar" MaxLength="50" />
+          <Property Name="AnimalId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AltName_CutName">
+          <End Role="CutName" Type="Self.CutName" Multiplicity="1" />
+          <End Role="AltName" Type="Self.AltName" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CutName">
+              <PropertyRef Name="CutId" />
+            </Principal>
+            <Dependent Role="AltName">
+              <PropertyRef Name="CutId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CookCut_CookType">
+          <End Role="CookType" Type="Self.CookType" Multiplicity="1" />
+          <End Role="CookCut" Type="Self.CookCut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CookType">
+              <PropertyRef Name="CookId" />
+            </Principal>
+            <Dependent Role="CookCut">
+              <PropertyRef Name="CookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CookCut_CutName">
+          <End Role="CutName" Type="Self.CutName" Multiplicity="1" />
+          <End Role="CookCut" Type="Self.CookCut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CutName">
+              <PropertyRef Name="CutId" />
+            </Principal>
+            <Dependent Role="CookCut">
+              <PropertyRef Name="CutId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CutName_PrimalCut">
+          <End Role="PrimalCut" Type="Self.PrimalCut" Multiplicity="1" />
+          <End Role="CutName" Type="Self.CutName" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrimalCut">
+              <PropertyRef Name="PrimalCutId" />
+            </Principal>
+            <Dependent Role="CutName">
+              <PropertyRef Name="PrimalCutId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PrimalCut_Animal1">
+          <End Role="Animal" Type="Self.Animal" Multiplicity="1" />
+          <End Role="PrimalCut" Type="Self.PrimalCut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animal">
+              <PropertyRef Name="AnimalId" />
+            </Principal>
+            <Dependent Role="PrimalCut">
+              <PropertyRef Name="AnimalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FinalProjectDBModelStoreContainer">
+          <EntitySet Name="AltName" EntityType="Self.AltName" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Animal" EntityType="Self.Animal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CookCut" EntityType="Self.CookCut" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CookType" EntityType="Self.CookType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CutName" EntityType="Self.CutName" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PrimalCut" EntityType="Self.PrimalCut" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AltName_CutName" Association="Self.FK_AltName_CutName">
+            <End Role="CutName" EntitySet="CutName" />
+            <End Role="AltName" EntitySet="AltName" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CookCut_CookType" Association="Self.FK_CookCut_CookType">
+            <End Role="CookType" EntitySet="CookType" />
+            <End Role="CookCut" EntitySet="CookCut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CookCut_CutName" Association="Self.FK_CookCut_CutName">
+            <End Role="CutName" EntitySet="CutName" />
+            <End Role="CookCut" EntitySet="CookCut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CutName_PrimalCut" Association="Self.FK_CutName_PrimalCut">
+            <End Role="PrimalCut" EntitySet="PrimalCut" />
+            <End Role="CutName" EntitySet="CutName" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrimalCut_Animal1" Association="Self.FK_PrimalCut_Animal1">
+            <End Role="Animal" EntitySet="Animal" />
+            <End Role="PrimalCut" EntitySet="PrimalCut" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FinalProjectDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AltName">
+          <Key>
+            <PropertyRef Name="AltNameId" />
+          </Key>
+          <Property Name="AltNameId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CutId" Type="Int32" Nullable="false" />
+          <Property Name="AltName1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CutName" Relationship="Self.FK_AltName_CutName" FromRole="AltName" ToRole="CutName" />
+        </EntityType>
+        <EntityType Name="Animal">
+          <Key>
+            <PropertyRef Name="AnimalId" />
+          </Key>
+          <Property Name="AnimalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AnimalName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PrimalCuts" Relationship="Self.FK_PrimalCut_Animal1" FromRole="Animal" ToRole="PrimalCut" />
+        </EntityType>
+        <EntityType Name="CookCut">
+          <Key>
+            <PropertyRef Name="CookCutId" />
+          </Key>
+          <Property Name="CutId" Type="Int32" Nullable="false" />
+          <Property Name="CookId" Type="Int32" Nullable="false" />
+          <Property Name="Good_Bad" Type="Boolean" Nullable="false" />
+          <Property Name="CookCutId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="CookType" Relationship="Self.FK_CookCut_CookType" FromRole="CookCut" ToRole="CookType" />
+          <NavigationProperty Name="CutName" Relationship="Self.FK_CookCut_CutName" FromRole="CookCut" ToRole="CutName" />
+        </EntityType>
+        <EntityType Name="CookType">
+          <Key>
+            <PropertyRef Name="CookId" />
+          </Key>
+          <Property Name="CookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CookType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CookCuts" Relationship="Self.FK_CookCut_CookType" FromRole="CookType" ToRole="CookCut" />
+        </EntityType>
+        <EntityType Name="CutName">
+          <Key>
+            <PropertyRef Name="CutId" />
+          </Key>
+          <Property Name="CutId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CutName1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PrimalCutId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AltNames" Relationship="Self.FK_AltName_CutName" FromRole="CutName" ToRole="AltName" />
+          <NavigationProperty Name="CookCuts" Relationship="Self.FK_CookCut_CutName" FromRole="CutName" ToRole="CookCut" />
+          <NavigationProperty Name="PrimalCut" Relationship="Self.FK_CutName_PrimalCut" FromRole="CutName" ToRole="PrimalCut" />
+        </EntityType>
+        <EntityType Name="PrimalCut">
+          <Key>
+            <PropertyRef Name="PrimalCutId" />
+          </Key>
+          <Property Name="PrimalCutId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PrimalCutName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AnimalId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Animal" Relationship="Self.FK_PrimalCut_Animal1" FromRole="PrimalCut" ToRole="Animal" />
+          <NavigationProperty Name="CutNames" Relationship="Self.FK_CutName_PrimalCut" FromRole="PrimalCut" ToRole="CutName" />
+        </EntityType>
+        <Association Name="FK_AltName_CutName">
+          <End Role="CutName" Type="Self.CutName" Multiplicity="1" />
+          <End Role="AltName" Type="Self.AltName" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CutName">
+              <PropertyRef Name="CutId" />
+            </Principal>
+            <Dependent Role="AltName">
+              <PropertyRef Name="CutId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PrimalCut_Animal1">
+          <End Role="Animal" Type="Self.Animal" Multiplicity="1" />
+          <End Role="PrimalCut" Type="Self.PrimalCut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Animal">
+              <PropertyRef Name="AnimalId" />
+            </Principal>
+            <Dependent Role="PrimalCut">
+              <PropertyRef Name="AnimalId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CookCut_CookType">
+          <End Role="CookType" Type="Self.CookType" Multiplicity="1" />
+          <End Role="CookCut" Type="Self.CookCut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CookType">
+              <PropertyRef Name="CookId" />
+            </Principal>
+            <Dependent Role="CookCut">
+              <PropertyRef Name="CookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CookCut_CutName">
+          <End Role="CutName" Type="Self.CutName" Multiplicity="1" />
+          <End Role="CookCut" Type="Self.CookCut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CutName">
+              <PropertyRef Name="CutId" />
+            </Principal>
+            <Dependent Role="CookCut">
+              <PropertyRef Name="CutId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CutName_PrimalCut">
+          <End Role="PrimalCut" Type="Self.PrimalCut" Multiplicity="1" />
+          <End Role="CutName" Type="Self.CutName" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrimalCut">
+              <PropertyRef Name="PrimalCutId" />
+            </Principal>
+            <Dependent Role="CutName">
+              <PropertyRef Name="PrimalCutId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FinalProjectDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AltNames" EntityType="Self.AltName" />
+          <EntitySet Name="Animals" EntityType="Self.Animal" />
+          <EntitySet Name="CookCuts" EntityType="Self.CookCut" />
+          <EntitySet Name="CookTypes" EntityType="Self.CookType" />
+          <EntitySet Name="CutNames" EntityType="Self.CutName" />
+          <EntitySet Name="PrimalCuts" EntityType="Self.PrimalCut" />
+          <AssociationSet Name="FK_AltName_CutName" Association="Self.FK_AltName_CutName">
+            <End Role="CutName" EntitySet="CutNames" />
+            <End Role="AltName" EntitySet="AltNames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PrimalCut_Animal1" Association="Self.FK_PrimalCut_Animal1">
+            <End Role="Animal" EntitySet="Animals" />
+            <End Role="PrimalCut" EntitySet="PrimalCuts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CookCut_CookType" Association="Self.FK_CookCut_CookType">
+            <End Role="CookType" EntitySet="CookTypes" />
+            <End Role="CookCut" EntitySet="CookCuts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CookCut_CutName" Association="Self.FK_CookCut_CutName">
+            <End Role="CutName" EntitySet="CutNames" />
+            <End Role="CookCut" EntitySet="CookCuts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CutName_PrimalCut" Association="Self.FK_CutName_PrimalCut">
+            <End Role="PrimalCut" EntitySet="PrimalCuts" />
+            <End Role="CutName" EntitySet="CutNames" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FinalProjectDBModelStoreContainer" CdmEntityContainer="FinalProjectDBEntities1">
+          <EntitySetMapping Name="AltNames">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.AltName">
+              <MappingFragment StoreEntitySet="AltName">
+                <ScalarProperty Name="AltNameId" ColumnName="AltNameId" />
+                <ScalarProperty Name="CutId" ColumnName="CutId" />
+                <ScalarProperty Name="AltName1" ColumnName="AltName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Animals">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.Animal">
+              <MappingFragment StoreEntitySet="Animal">
+                <ScalarProperty Name="AnimalId" ColumnName="AnimalId" />
+                <ScalarProperty Name="AnimalName" ColumnName="AnimalName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CookCuts">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.CookCut">
+              <MappingFragment StoreEntitySet="CookCut">
+                <ScalarProperty Name="CutId" ColumnName="CutId" />
+                <ScalarProperty Name="CookId" ColumnName="CookId" />
+                <ScalarProperty Name="Good_Bad" ColumnName="Good/Bad" />
+                <ScalarProperty Name="CookCutId" ColumnName="CookCutId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CookTypes">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.CookType">
+              <MappingFragment StoreEntitySet="CookType">
+                <ScalarProperty Name="CookId" ColumnName="CookId" />
+                <ScalarProperty Name="CookType1" ColumnName="CookType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CutNames">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.CutName">
+              <MappingFragment StoreEntitySet="CutName">
+                <ScalarProperty Name="CutId" ColumnName="CutId" />
+                <ScalarProperty Name="CutName1" ColumnName="CutName" />
+                <ScalarProperty Name="PrimalCutId" ColumnName="PrimalCutId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PrimalCuts">
+            <EntityTypeMapping TypeName="FinalProjectDBModel.PrimalCut">
+              <MappingFragment StoreEntitySet="PrimalCut">
+                <ScalarProperty Name="PrimalCutId" ColumnName="PrimalCutId" />
+                <ScalarProperty Name="PrimalCutName" ColumnName="PrimalCutName" />
+                <ScalarProperty Name="AnimalId" ColumnName="AnimalId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
