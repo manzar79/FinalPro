@@ -52,3 +52,4 @@ C:\Users\Grand\Documents\GitHub\FinalPro\FinalPro\bin\Microsoft.Owin.Security.Tw
 C:\Users\Grand\Documents\GitHub\FinalPro\FinalPro\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Grand\Documents\GitHub\FinalPro\FinalPro\obj\Debug\FinalPro.dll
 C:\Users\Grand\Documents\GitHub\FinalPro\FinalPro\obj\Debug\FinalPro.pdb
+C:\Users\Grand\Documents\GitHub\FinalPro\FinalPro\obj\Debug\FinalPro.csprojResolveAssemblyReference.cache
