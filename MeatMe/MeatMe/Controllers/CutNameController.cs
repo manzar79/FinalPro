@@ -19,6 +19,8 @@ namespace MeatMe.Controllers
         {
             var cutNames = db.CutNames.Include(c => c.PrimalCut);
             return View(cutNames.ToList());
+
+            
         }
 
         // GET: CutName/Details/5
@@ -35,6 +37,7 @@ namespace MeatMe.Controllers
             }
             return View(cutName);
         }
+
 
         // GET: CutName/Create
         public ActionResult Create()

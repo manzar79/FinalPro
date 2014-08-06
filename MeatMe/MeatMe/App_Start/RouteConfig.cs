@@ -18,6 +18,22 @@ namespace MeatMe
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+               "HomeSearch",
+               "Home/Search/{searchTerm}",
+               new
+               {
+                   controller = "Home",
+                   action = "Search",
+                   searchTerm = ""
+               }
+           );
+            routes.MapRoute(
+                "HomeAjaxSearch",
+                "Home/getAjaxResult/",
+                new { controller = "Home", action = "getAjaxResult" }
+            );
         }
     }
 }
