@@ -1,6 +1,7 @@
 ﻿@*@model IEnumerable<MeatMe.Models.CutName>*@
 @model MeatMe.Models.CutName
 
+
 @{
     ViewBag.Title = "Details";
 }
@@ -26,9 +27,28 @@
         <dd>
             @Html.DisplayFor(model => model.PrimalCut.PrimalCutName)
         </dd>
-
+       
     </dl>
+
 </div>
+
+<h4>Alternate namefor this cut</h4>
+<table>
+    
+    <tr class="dl-horizontal">
+        @foreach (var item in Model.AltNames) { 
+        <td>
+            
+          @Html.DisplayFor(modelItem => item.AltName1)
+            
+        </td>
+        }
+    </tr>
+</table>
+
+
+<br />
+<br />
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CutId }) |
     @Html.ActionLink("Back to List", "Index")
