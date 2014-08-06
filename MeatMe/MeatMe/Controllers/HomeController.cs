@@ -14,6 +14,14 @@ namespace MeatMe.Controllers
 
         public ActionResult Index()
         {
+            var onlyCow = from c in db.CutNames
+                          where c.PrimalCut.AnimalId == 1
+                          select c;
+            var onlyPig = from p in db.CutNames
+                          where p.PrimalCut.AnimalId == 2
+                          select p;
+            ViewBag.Cow = new SelectList(onlyCow, "CutId", "CutName1");
+            ViewBag.Pig = new SelectList(onlyPig, "CutId", "CutName1");
             return View();
         }
 
