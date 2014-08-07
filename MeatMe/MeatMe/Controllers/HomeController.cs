@@ -54,7 +54,7 @@ namespace MeatMe.Controllers
             return Content(searchResult);
         }
         //-------------------------------------
-        [AcceptVerbs(HttpVerbs.Post)]
+        [AcceptVerbs(HttpVerbs.Get)]
         public ActionResult Search(string searchTerm)
         {
             if (String.IsNullOrEmpty(searchTerm))
