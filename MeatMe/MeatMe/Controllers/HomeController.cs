@@ -54,7 +54,7 @@ namespace MeatMe.Controllers
             return Content(searchResult);
         }
         //-------------------------------------
-        [AcceptVerbs(HttpVerbs.Post)]
+        [AcceptVerbs(HttpVerbs.Get)]
         public ActionResult Search(string searchTerm)
         {
             if (String.IsNullOrEmpty(searchTerm))
@@ -72,7 +72,7 @@ namespace MeatMe.Controllers
 
                 if (cutName.Count() == 0)
                 {
-                    return View("notfound");
+                    return View("NotFound");
                 }
            
                 else if (cutName.Count() == 1)
