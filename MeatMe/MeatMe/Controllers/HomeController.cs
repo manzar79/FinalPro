@@ -24,7 +24,16 @@ namespace MeatMe.Controllers
             ViewBag.Pig = new SelectList(onlyPig, "CutId", "CutName1");
             return View();
         }
-
+        public ActionResult Go(string Cow)
+        {
+            int goHere=Convert.ToInt32(Cow);            
+            return RedirectToAction("Details","CutName",new{id=goHere});
+        }
+        public ActionResult Go2(string Pig)
+        {
+            int goHere = Convert.ToInt32(Pig);
+            return RedirectToAction("Details", "CutName", new { id = goHere });
+        }
         //Added code for search database
         public ActionResult getAjaxResult(string q)
         {
