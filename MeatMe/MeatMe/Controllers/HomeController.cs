@@ -64,13 +64,18 @@ namespace MeatMe.Controllers
                 {
                     return View("notfound");
                 }
-                else
+           
+                else if (cutName.Count() == 1)
                 {
                     return RedirectToAction("Details", "CutName",
                         new { id = cutName.First().CutId });
                 }
 
-                
+                else 
+                {
+                    return RedirectToAction("Index", "CutName",
+                        new { id = cutName.First().CutId });
+                }
             }
 
             //return View("Index");
