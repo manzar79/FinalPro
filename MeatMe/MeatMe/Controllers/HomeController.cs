@@ -56,9 +56,9 @@ namespace MeatMe.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Search(string searchTerm)
         {
-            if (searchTerm == string.Empty)
+            if (String.IsNullOrEmpty(searchTerm))
             {
-                return View();
+                return RedirectToAction("Index","CutName");
             }
             else
             {
