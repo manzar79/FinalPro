@@ -8,6 +8,9 @@ namespace MeatMe.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        public string Hometown { get; set; }
+        public System.DateTime? Birthdate { get; set; }
     }
 
     public class ExternalLoginListViewModel

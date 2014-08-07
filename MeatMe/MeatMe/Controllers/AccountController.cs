@@ -405,7 +405,12 @@ namespace MeatMe.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser() 
+                { 
+                    UserName = model.Email, Email = model.Email,
+                    Birthdate = model.Birthdate,
+                    Hometown = model.Hometown
+                };
                 IdentityResult result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

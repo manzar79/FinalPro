@@ -46,15 +46,15 @@ namespace MeatMe
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "748225421887770",
+               appSecret: "c3eb718a26509018d0e19561f9c632f3");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "116211679504-jrp0cjolgeu37lgklf3vfb14lrr61kqm.apps.googleusercontent.com",
+                ClientSecret = "00FK8ZeQ09WbXlsOQDnyhYlY"
+            });
         }
     }
 }
