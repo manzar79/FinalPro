@@ -7,6 +7,8 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-color: antiquewhite;
+    color: maroon;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -14,4 +16,19 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.jumbotron {
+    background-color: maroon;
+    color: antiquewhite;
+}
+
+.btn-meat-light {
+    background-color: antiquewhite;
+    color: maroon;
+}
+
+.btn-meat-dark {
+    background-color: maroon;
+    color: antiquewhite;
 }
