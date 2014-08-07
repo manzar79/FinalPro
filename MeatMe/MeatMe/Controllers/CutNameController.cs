@@ -15,9 +15,15 @@ namespace MeatMe.Controllers
         private FinalProjectDBEntities1 db = new FinalProjectDBEntities1();
 
         // GET: CutName
-        public ActionResult Index()
+        public ViewResult Index(string searchTerm)
         {
-            var cutNames = db.CutNames.Include(c => c.PrimalCut);
+            var cutNames = from s in db.CutNames
+                           select s;
+            if (!String.IsNullOrEmpty(searchTerm))
+            {
+                cutNames = db.CutNames.Where(s => s.CutName1.ToUpper().Contains(searchTerm.ToUpper()));
+            }
+             
             return View(cutNames.ToList());
 
             

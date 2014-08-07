@@ -16,16 +16,25 @@ namespace MeatMe.Controllers
         public ActionResult Index()
         {
             var onlyCow = from c in db.CutNames
-                          where c.PrimalCut.AnimalId == 1
+                          where c.PrimalCut.Animal.AnimalName== "Cow"
                           select c;
             var onlyPig = from p in db.CutNames
-                          where p.PrimalCut.AnimalId == 2
+                          where p.PrimalCut.Animal.AnimalName == "Pig"
                           select p;
             ViewBag.Cow = new SelectList(onlyCow, "CutId", "CutName1");
             ViewBag.Pig = new SelectList(onlyPig, "CutId", "CutName1");
             return View();
         }
-
+        public ActionResult Go(string Cow)
+        {
+            int goHere=Convert.ToInt32(Cow);            
+            return RedirectToAction("Details","CutName",new{id=goHere});
+        }
+        public ActionResult Go2(string Pig)
+        {
+            int goHere = Convert.ToInt32(Pig);
+            return RedirectToAction("Details", "CutName", new { id = goHere });
+        }
         //Added code for search database
         public ActionResult getAjaxResult(string q)
         {
@@ -48,9 +57,9 @@ namespace MeatMe.Controllers
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult Search(string searchTerm)
         {
-            if (searchTerm == string.Empty)
+            if (String.IsNullOrEmpty(searchTerm))
             {
-                return View();
+                return RedirectToAction("Index","CutName");
             }
             else
             {
@@ -65,13 +74,18 @@ namespace MeatMe.Controllers
                 {
                     return View("notfound");
                 }
-                else
+           
+                else if (cutName.Count() == 1)
                 {
                     return RedirectToAction("Details", "CutName",
                         new { id = cutName.First().CutId });
                 }
 
-                
+                else 
+                {
+                    return RedirectToAction("Index", "CutName",
+                        new { id=searchTerm });
+                }
             }
 
             //return View("Index");
