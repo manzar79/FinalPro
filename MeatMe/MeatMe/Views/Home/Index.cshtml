@@ -27,7 +27,7 @@
 
     <h2>Look for a Cut Name</h2>
 
-    <form action="/Home/Search" method="get" id="searchForm">
+    <form action="/Home/Search" method="post" id="searchForm">
         <input type="text" name="searchTerm" id="searchTerm" value="" size="10" maxlength="30" />
         <input type="submit" value="Search" />
     </form>
@@ -35,7 +35,7 @@
 
 </asp:Content>
 
-@using (Html.BeginForm("Go", "Home", FormMethod.Get, new { id = "selectedCut" }))
+@using (Html.BeginForm("Go", "Home", FormMethod.Post, new { id = "selectedCut" }))
 { 
 
 <div class="row">
@@ -46,7 +46,7 @@
     </div>
     </div>
 }
-@using (Html.BeginForm("Go2", "Home", FormMethod.Get, new { id="selectedCut"}))
+@using (Html.BeginForm("Go2", "Home", FormMethod.Post, new { id="selectedCut"}))
 { 
     <div class="row">
     <div class="col-md-4">

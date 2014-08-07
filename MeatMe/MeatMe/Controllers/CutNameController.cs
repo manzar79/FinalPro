@@ -15,13 +15,13 @@ namespace MeatMe.Controllers
         private FinalProjectDBEntities1 db = new FinalProjectDBEntities1();
 
         // GET: CutName
-        public ViewResult Index(string id)
+        public ViewResult Index(string searchTerm)
         {
             var cutNames = from s in db.CutNames
                            select s;
-            if (!String.IsNullOrEmpty(id))
+            if (!String.IsNullOrEmpty(searchTerm))
             {
-                cutNames = db.CutNames.Where(s => s.CutName1.ToUpper().Contains(id.ToUpper()));
+                cutNames = db.CutNames.Where(s => s.CutName1.ToUpper().Contains(searchTerm.ToUpper()));
             }
              
             return View(cutNames.ToList());
