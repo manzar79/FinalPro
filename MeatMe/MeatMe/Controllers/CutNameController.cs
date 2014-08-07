@@ -15,7 +15,7 @@ namespace MeatMe.Controllers
         private FinalProjectDBEntities1 db = new FinalProjectDBEntities1();
 
         // GET: CutName
-        public ActionResult Index(string searchTerm)
+        public ViewResult Index(string searchTerm)
         {
             var cutNames = from s in db.CutNames
                            select s;

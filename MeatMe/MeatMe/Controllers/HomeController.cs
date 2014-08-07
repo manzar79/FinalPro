@@ -15,10 +15,10 @@ namespace MeatMe.Controllers
         public ActionResult Index()
         {
             var onlyCow = from c in db.CutNames
-                          where c.PrimalCut.AnimalId == 1
+                          where c.PrimalCut.Animal.AnimalName== "Cow"
                           select c;
             var onlyPig = from p in db.CutNames
-                          where p.PrimalCut.AnimalId == 2
+                          where p.PrimalCut.Animal.AnimalName == "Pig"
                           select p;
             ViewBag.Cow = new SelectList(onlyCow, "CutId", "CutName1");
             ViewBag.Pig = new SelectList(onlyPig, "CutId", "CutName1");
@@ -83,7 +83,7 @@ namespace MeatMe.Controllers
                 else 
                 {
                     return RedirectToAction("Index", "CutName",
-                        new { id = cutName.First().CutId });
+                        new { id=searchTerm });
                 }
             }
 
