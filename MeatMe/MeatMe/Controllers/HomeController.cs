@@ -72,7 +72,7 @@ namespace MeatMe.Controllers
 
                 if (cutName.Count() == 0)
                 {
-                    return View("notfound");
+                    return View("NotFound");
                 }
            
                 else if (cutName.Count() == 1)
