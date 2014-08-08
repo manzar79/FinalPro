@@ -24,7 +24,7 @@ namespace MeatMe.Controllers
                             select alt;
             if (!String.IsNullOrEmpty(id))
             {
-                cutNames = db.CutNames.Where(s => s.CutName1.ToUpper().Contains(id.ToUpper())|| s.PrimalCut.PrimalCutName.ToUpper().Contains(id.ToUpper()));
+                cutNames = db.CutNames.Where(s => s.CutName1.ToUpper().Contains(id.ToUpper())|| s.PrimalCut.PrimalCutName.ToUpper().Contains(id.ToUpper()) || s.AltNames.FirstOrDefault().AltName1.ToUpper().Contains(id.ToUpper()));
             }
              
             return View(cutNames.ToList());
