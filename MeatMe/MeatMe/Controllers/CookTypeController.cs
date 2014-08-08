@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MeatMe.Models;
+using MeatMe.CustomAttributes;
 
 namespace MeatMe.Controllers
 {
+    [BasicAuthAttribute]
     public class CookTypeController : Controller
     {
         private FinalProjectDBEntities1 db = new FinalProjectDBEntities1();
