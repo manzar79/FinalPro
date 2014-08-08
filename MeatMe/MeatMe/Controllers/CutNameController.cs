@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MeatMe.Models;
+using MeatMe.CustomAttributes;
 
 namespace MeatMe.Controllers
 {
@@ -48,6 +49,7 @@ namespace MeatMe.Controllers
 
 
         // GET: CutName/Create
+        [BasicAuthAttribute]
         public ActionResult Create()
         {
             ViewBag.PrimalCutId = new SelectList(db.PrimalCuts, "PrimalCutId", "PrimalCutName");
@@ -73,6 +75,7 @@ namespace MeatMe.Controllers
         }
 
         // GET: CutName/Edit/5
+        [BasicAuthAttribute]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -106,6 +109,7 @@ namespace MeatMe.Controllers
         }
 
         // GET: CutName/Delete/5
+        [BasicAuthAttribute]
         public ActionResult Delete(int? id)
         {
             if (id == null)
