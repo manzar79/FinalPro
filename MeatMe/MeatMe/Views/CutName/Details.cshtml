@@ -27,6 +27,14 @@
         <dd>
             @Html.DisplayFor(model => model.PrimalCut.PrimalCutName)
         </dd>
+
+        <dt>
+            Notes:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
        
     </dl>
 
@@ -53,10 +61,7 @@
         @foreach (var item in Model.CookCuts)
         {
             <td>
-
                 @Html.DisplayFor(modelItem => item.CookType.CookType1)<br />
-                @Html.DisplayFor(modelItem => item.CookType.Notes)
-            
             </td>
         }
     </tr>

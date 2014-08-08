@@ -11,7 +11,7 @@
           </Key>
           <Property Name="AltNameId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CutId" Type="int" Nullable="false" />
-          <Property Name="AltName" Type="text" />
+          <Property Name="AltName" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Animal">
           <Key>
@@ -26,7 +26,7 @@
           </Key>
           <Property Name="CutId" Type="int" Nullable="false" />
           <Property Name="CookId" Type="int" Nullable="false" />
-          <Property Name="Good/Bad" Type="bit" Nullable="false" />
+          <Property Name="Good/Bad" Type="bit" />
           <Property Name="CookCutId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="CookType">
@@ -35,7 +35,6 @@
           </Key>
           <Property Name="CookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CookType" Type="varchar" MaxLength="50" />
-          <Property Name="Notes" Type="text" />
         </EntityType>
         <EntityType Name="CutName">
           <Key>
@@ -44,6 +43,7 @@
           <Property Name="CutId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CutName" Type="varchar" MaxLength="50" />
           <Property Name="PrimalCutId" Type="int" Nullable="false" />
+          <Property Name="Notes" Type="text" />
         </EntityType>
         <EntityType Name="PrimalCut">
           <Key>
@@ -151,7 +151,7 @@
           </Key>
           <Property Name="AltNameId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CutId" Type="Int32" Nullable="false" />
-          <Property Name="AltName1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AltName1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CutName" Relationship="Self.FK_AltName_CutName" FromRole="AltName" ToRole="CutName" />
         </EntityType>
         <EntityType Name="Animal">
@@ -168,7 +168,7 @@
           </Key>
           <Property Name="CutId" Type="Int32" Nullable="false" />
           <Property Name="CookId" Type="Int32" Nullable="false" />
-          <Property Name="Good_Bad" Type="Boolean" Nullable="false" />
+          <Property Name="Good_Bad" Type="Boolean" />
           <Property Name="CookCutId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="CookType" Relationship="Self.FK_CookCut_CookType" FromRole="CookCut" ToRole="CookType" />
           <NavigationProperty Name="CutName" Relationship="Self.FK_CookCut_CutName" FromRole="CookCut" ToRole="CutName" />
@@ -180,7 +180,6 @@
           <Property Name="CookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CookType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CookCuts" Relationship="Self.FK_CookCut_CookType" FromRole="CookType" ToRole="CookCut" />
-          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="CutName">
           <Key>
@@ -192,6 +191,7 @@
           <NavigationProperty Name="AltNames" Relationship="Self.FK_AltName_CutName" FromRole="CutName" ToRole="AltName" />
           <NavigationProperty Name="CookCuts" Relationship="Self.FK_CookCut_CutName" FromRole="CutName" ToRole="CookCut" />
           <NavigationProperty Name="PrimalCut" Relationship="Self.FK_CutName_PrimalCut" FromRole="CutName" ToRole="PrimalCut" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="PrimalCut">
           <Key>
@@ -327,7 +327,6 @@
           <EntitySetMapping Name="CookTypes">
             <EntityTypeMapping TypeName="FinalProjectDBModel.CookType">
               <MappingFragment StoreEntitySet="CookType">
-                <ScalarProperty Name="Notes" ColumnName="Notes" />
                 <ScalarProperty Name="CookId" ColumnName="CookId" />
                 <ScalarProperty Name="CookType1" ColumnName="CookType" />
               </MappingFragment>
@@ -336,6 +335,7 @@
           <EntitySetMapping Name="CutNames">
             <EntityTypeMapping TypeName="FinalProjectDBModel.CutName">
               <MappingFragment StoreEntitySet="CutName">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
                 <ScalarProperty Name="CutId" ColumnName="CutId" />
                 <ScalarProperty Name="CutName1" ColumnName="CutName" />
                 <ScalarProperty Name="PrimalCutId" ColumnName="PrimalCutId" />

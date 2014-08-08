@@ -16,7 +16,7 @@ namespace MeatMe.Models
     {
         public int CutId { get; set; }
         public int CookId { get; set; }
-        public bool Good_Bad { get; set; }
+        public Nullable<bool> Good_Bad { get; set; }
         public int CookCutId { get; set; }
     
         public virtual CookType CookType { get; set; }

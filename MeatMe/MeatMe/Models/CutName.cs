@@ -23,6 +23,7 @@ namespace MeatMe.Models
         public int CutId { get; set; }
         public string CutName1 { get; set; }
         public int PrimalCutId { get; set; }
+        public string Notes { get; set; }
     
         public virtual ICollection<AltName> AltNames { get; set; }
         public virtual ICollection<CookCut> CookCuts { get; set; }

@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="1360d6542c5d4521addc391b82fc93ec" Name="Diagram1">
         <EntityTypeShape EntityType="FinalProjectDBModel.AltName" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="FinalProjectDBModel.Animal" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectDBModel.Animal" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="FinalProjectDBModel.CookCut" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FinalProjectDBModel.CookType" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FinalProjectDBModel.CutName" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />

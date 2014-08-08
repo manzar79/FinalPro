@@ -21,7 +21,6 @@ namespace MeatMe.Models
     
         public int CookId { get; set; }
         public string CookType1 { get; set; }
-        public string Notes { get; set; }
     
         public virtual ICollection<CookCut> CookCuts { get; set; }
     }
