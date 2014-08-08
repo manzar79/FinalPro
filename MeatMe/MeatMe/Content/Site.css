@@ -1,14 +1,18 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image:url(http://buildipedia.com/images/masterformat/Channels/At_Home/Countertops_101/Butcher_Block.jpg);
+    font-size:17px;
+   
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-    background-color: antiquewhite;
+    background-color: black;
     color: maroon;
+    font-size:small
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -19,8 +23,9 @@ textarea {
 }
 
 .jumbotron {
+    font-family:'Times New Roman'
     background-color: maroon;
-    color: antiquewhite;
+    color: wheat;
 }
 
 .btn-meat-light {
