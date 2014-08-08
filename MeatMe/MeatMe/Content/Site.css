@@ -8,9 +8,10 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
+    padding-top: 30px;
     padding-left: 15px;
     padding-right: 15px;
-    background-color: black;
+    background-color: #965847;
     color: maroon;
     font-size:small
 }
@@ -23,9 +24,10 @@ textarea {
 }
 
 .jumbotron {
-    font-family:'Times New Roman'
-    background-color: maroon;
-    color: wheat;
+    font-style: italic;
+    font-family:'Times New Roman';
+    background-color:white;
+    
 }
 
 .btn-meat-light {
@@ -36,4 +38,21 @@ textarea {
 .btn-meat-dark {
     background-color: maroon;
     color: antiquewhite;
+}
+
+.container body-content {
+    font-size:small;
+  
+
+}
+
+div.jumbotron { width:1140px; height:120px;
+                
+
+}
+
+.div.col-md-4 {
+    position:absolute;
+    right:100px;
+    bottom:50px;
 }

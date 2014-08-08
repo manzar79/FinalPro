@@ -4,9 +4,9 @@
 }
 
 <div class="jumbotron">
-    <h1>MeatMe</h1>
+    
+    <h1>MEATME.COM</h1>
     <p class="lead">Every piece of meat has multiple names. That's confusing. I'm here to help. Meet me, MeatMe.</p>
-    <p><a href="http://asp.net" class="btn btn-meat-light btn-primary btn-lg">Let's meat! &raquo;</a></p>
 </div>
 
 @*codes for adding a search Button*@
@@ -40,6 +40,7 @@
 @using (Html.BeginForm("Go", "Home", FormMethod.Get, new { id = "selectedCut" }))
 { 
     <div class="row">
+       
         <div class="col-md-4">
             <h2>Choose a piece of beef:</h2>
                 @Html.DropDownList("Cow", null, htmlAttributes: new { @class = "form-control" })
@@ -52,7 +53,7 @@
 <!-- Choose a pork cut dropdown -->
 @using (Html.BeginForm("Go2", "Home", FormMethod.Get, new { id="selectedCut"}))
 { 
-    <div class="row">
+    <div class="row right">
         <div class="col-md-4">
             <h2>Choose a piece of pork:</h2>
             @Html.DropDownList("Pig", null, htmlAttributes: new { @class = "form-control" })
