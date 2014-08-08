@@ -41,18 +41,14 @@
 </div>
 
 <h4>Alternate name for this cut</h4>
-<table>
+
     
-    <tr class="dl-horizontal">
-        @foreach (var item in Model.AltNames) { 
-        <td>
-            
-          @Html.DisplayFor(modelItem => item.AltName1)
-            
-        </td>
-        }
-    </tr>
-</table>
+
+        @foreach (var item in Model.AltNames) 
+        { 
+          @Html.DisplayFor(modelItem => item.AltName1)<br />
+            }
+
 
 <h4>Best Cooking Methods for this cut</h4>
 <table>
