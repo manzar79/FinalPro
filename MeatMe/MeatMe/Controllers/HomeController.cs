@@ -74,8 +74,11 @@ namespace MeatMe.Controllers
                                 where b.AltName1.Contains(searchTerm)
                                 orderby b.AltName1
                                 select b;
+                var primeCutName = from p in db.PrimalCuts
+                                   where p.PrimalCutName.Contains(searchTerm)
+                                   select p;
 
-                if (cutName.Count() == 0 && alCutName.Count()==0)
+                if (cutName.Count() == 0 && alCutName.Count()==0 && primeCutName.Count()==0)
                 {
                     
                     return View("NotFound");
