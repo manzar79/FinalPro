@@ -69,16 +69,25 @@ namespace MeatMe.Controllers
                               where a.CutName1.Contains(searchTerm)
                               orderby a.CutName1
                               select a;
+                var alCutName = from b in db.AltNames
+                                where b.AltName1.Contains(searchTerm)
+                                orderby b.AltName1
+                                select b;
 
-                if (cutName.Count() == 0)
+                if (cutName.Count() == 0 && alCutName.Count()==0)
                 {
+                    
                     return View("NotFound");
                 }
            
-                else if (cutName.Count() == 1)
+                else if (cutName.Count() == 1 && alCutName.Count()==0)
                 {
                     return RedirectToAction("Details", "CutName",
                         new { id = cutName.First().CutId });
+                }
+                else if(cutName.Count()==0 && alCutName.Count()==1)
+                {
+                    return RedirectToAction("Details", "CutName", new { id = alCutName.First().CutId });
                 }
 
                 else 
