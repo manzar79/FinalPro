@@ -32,7 +32,7 @@
 
 </div>
 
-<h4>Alternate name(s) for this cut</h4>
+<h4>Alternate name for this cut</h4>
 <table>
     
     <tr class="dl-horizontal">
@@ -46,6 +46,20 @@
     </tr>
 </table>
 
+<h4>Best Cooking Methods for this cut</h4>
+<table>
+
+    <tr class="dl-horizontal">
+        @foreach (var item in Model.CookCuts)
+        {
+            <td>
+
+                @Html.DisplayFor(modelItem => item.CookType)
+
+            </td>
+        }
+    </tr>
+</table>
 
 <br />
 <br />
