@@ -11,11 +11,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using MeatMe.Models;
-using MeatMe.CustomAttributes;
 
 namespace MeatMe.Controllers
 {
-    [BasicAuthAttribute]
     [Authorize]
     public class AccountController : Controller
     {
