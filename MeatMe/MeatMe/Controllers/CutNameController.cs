@@ -19,9 +19,11 @@ namespace MeatMe.Controllers
         {
             var cutNames = from s in db.CutNames
                            select s;
+            var altCutNames=from alt in db.AltNames
+                            select alt;
             if (!String.IsNullOrEmpty(id))
             {
-                cutNames = db.CutNames.Where(s => s.CutName1.ToUpper().Contains(id.ToUpper()));
+                cutNames = db.CutNames.Where(s => s.CutName1.ToUpper().Contains(id.ToUpper())|| s.PrimalCut.PrimalCutName.ToUpper().Contains(id.ToUpper()));
             }
              
             return View(cutNames.ToList());
