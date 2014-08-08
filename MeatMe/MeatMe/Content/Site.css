@@ -39,6 +39,16 @@ textarea {
     background-color: maroon;
     color: antiquewhite;
 }
+.btn-name-Google {
+    background-color: #dd4b39;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-name-Facebook {
+    background-color:blue;
+    color: white;
+}
 
 .container body-content {
     font-size:small;
