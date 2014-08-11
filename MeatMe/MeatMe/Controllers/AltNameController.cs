@@ -12,6 +12,7 @@ using MeatMe.CustomAttributes;
 namespace MeatMe.Controllers
 {
     [BasicAuthAttribute]
+    [Authorize(Roles = "Administrator")]
     public class AltNameController : Controller
     {
         private FinalProjectDBEntities1 db = new FinalProjectDBEntities1();

@@ -15,6 +15,7 @@ using MeatMe.Models;
 namespace MeatMe.Controllers
 {
     [Authorize]
+    [Authorize(Roles = "Administrator")]
     public class AccountController : Controller
     {
         private ApplicationUserManager _userManager;

@@ -50,6 +50,7 @@ namespace MeatMe.Controllers
 
         // GET: CutName/Create
         [BasicAuthAttribute]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Create()
         {
             ViewBag.PrimalCutId = new SelectList(db.PrimalCuts, "PrimalCutId", "PrimalCutName");
@@ -76,6 +77,7 @@ namespace MeatMe.Controllers
 
         // GET: CutName/Edit/5
         [BasicAuthAttribute]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -110,6 +112,7 @@ namespace MeatMe.Controllers
 
         // GET: CutName/Delete/5
         [BasicAuthAttribute]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
