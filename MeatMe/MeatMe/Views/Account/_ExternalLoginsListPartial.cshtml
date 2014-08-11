@@ -1,9 +1,23 @@
 ﻿@using MeatMe.Models
 @model ExternalLoginListViewModel
 @using Microsoft.Owin.Security
+<link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
 
 <h4>Use another service to log in.</h4>
 <hr />
+
+<!-- THIS IS FACEBOOK'S JAVASCRIPT SDK-->
+<div id="fb-root"></div>
+<script>
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=748225421887770&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- FACEBOOK SDK ENDS -->
+
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
     if (loginProviders.Count() == 0)
@@ -20,12 +34,54 @@
             @Html.AntiForgeryToken()
             <div id="socialLoginList">
                 <p>
+                
+                <!-- THIS IS THE GOOGLE LOGIN BUTTON -->
+                  @*<span id="signinButton">
+                        <span class="g-signin"
+                            data-callback="signinCallback"
+                            data-clientid="116211679504-jrp0cjolgeu37lgklf3vfb14lrr61kqm.apps.googleusercontent.com"
+                            data-cookiepolicy="single_host_origin"
+                            data-requestvisibleactions="http://schema.org/AddAction"
+                            data-scope="https://www.googleapis.com/auth/plus.login">
+                        </span>
+                    </span>*@
+                    <!-- END GOOGLE LOGIN BUTTON -->
+
+            @*<!-- THIS IS THE FACEBOOK LOGIN BUTTON -->
+            <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+            <!-- END FACEBOOK BUTTON -->*@
+
                 @foreach (AuthenticationDescription p in loginProviders)
                 {
-                    <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                    <button type="submit" class="btn btn-default btn-name-@p.Caption" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                    <br />
+                    <br />
                 }
                 </p>
             </div>
         }
     }
+   // <!-- Place this asynchronous JavaScript just before your </body> tag -->
+   // <script type="text/javascript">
+   //   (function() {
+   //    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+   //    po.src = 'https://apis.google.com/js/client:plusone.js';
+   //    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+   //   })();
+
+   //   function signinCallback(authResult) {
+   //       if (authResult['status']['signed_in']) {
+              // Update the app to reflect a signed in user
+              // Hide the sign-in button now that the user is authorized, for example:
+   //           document.getElementById('signinButton').setAttribute('style', 'display: none');
+   //       } else {
+              // Update the app to reflect a signed out user
+              // Possible error values:
+              //   "user_signed_out" - User is signed-out
+              //   "access_denied" - User denied access to your app
+              //   "immediate_failed" - Could not automatically log in the user
+   //           console.log('Sign-in state: ' + authResult['error']);
+   //       }
+   //   }
+   // </script>
 }
