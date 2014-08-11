@@ -12,6 +12,8 @@
     padding-left: 15px;
     padding-right: 15px;
     background-color: #965847;
+    background-image:url(http://i60.tinypic.com/z1ngy.png);
+    background-repeat:no-repeat;
     color: maroon;
     font-size:small
 }
@@ -43,15 +45,11 @@ textarea {
     background-color: #dd4b39;
     color: white;
     font-family: 'Roboto', sans-serif;
-    font-weight:700;
-    font-size: 1.5em;
 }
 
 .btn-name-Facebook {
-    background-color: #3B5998;
+    background-color:blue;
     color: white;
-    font-weight: bold;
-    font-size: 1.45em;
 }
 
 .container body-content {
@@ -60,13 +58,11 @@ textarea {
 
 }
 
-div.jumbotron { width:1140px; height:120px;
+div.jumbotron { width:1140px; height:220px;
                 
 
 }
 
-.div.col-md-4 {
-    position:absolute;
-    right:100px;
-    bottom:50px;
+h1 {
+    font-family:'Book Antiqua'
 }
