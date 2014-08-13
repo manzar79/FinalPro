@@ -51,17 +51,14 @@
 
 
 <h4>Best Cooking Methods for this cut</h4>
-<table>
 
-    <tr class="dl-horizontal">
         @foreach (var item in Model.CookCuts)
         {
-            <td>
+
                 @Html.DisplayFor(modelItem => item.CookType.CookType1)<br />
-            </td>
+
         }
-    </tr>
-</table>
+
 
 <br />
 <br />
